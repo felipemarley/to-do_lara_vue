@@ -28,8 +28,29 @@
             :key="task.id"
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            {{ task.title }}
+            <div class="flex-grow-1 me-2">
+              <template v-if="editingTaskId === task.id">
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="editedTitle"
+                  @keyup.enter="saveEdit(task)"
+                  @blur="saveEdit(task)"
+                  autofocus
+                />
+              </template>
+              <template v-else>
+                {{ task.title }}
+              </template>
+            </div>
             <div>
+              <button
+                v-if="editingTaskId !== task.id"
+                class="btn btn-warning btn-sm me-2"
+                @click="startEdit(task)"
+              >
+                ✏️
+              </button>
               <button class="btn btn-success btn-sm me-2" @click="markAsDone(task)">
                 ✅
               </button>
@@ -67,6 +88,10 @@
   const tasks = ref([]);
   const isDarkMode = ref(false);
   
+  // Edição
+  const editingTaskId = ref(null);
+  const editedTitle = ref('');
+  
   const addTask = () => {
     if (!newTask.value.trim()) return;
   
@@ -85,6 +110,19 @@
   
   const removeTask = (taskToRemove) => {
     tasks.value = tasks.value.filter(task => task.id !== taskToRemove.id);
+  };
+  
+  const startEdit = (task) => {
+    editingTaskId.value = task.id;
+    editedTitle.value = task.title;
+  };
+  
+  const saveEdit = (task) => {
+    if (editedTitle.value.trim()) {
+      task.title = editedTitle.value.trim();
+    }
+    editingTaskId.value = null;
+    editedTitle.value = '';
   };
   
   const activeTasks = computed(() =>
