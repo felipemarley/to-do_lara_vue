@@ -114,10 +114,3 @@ Reinicie o servidor Laravel se fizer mudanças.
 - Toda comunicação é feita por Axios
 
 ---
-
-## 🧑‍💻 Autor
-
-Desenvolvido por **Felipe** como projeto Full Stack com integração Laravel + Vue.js.
-
----
-
