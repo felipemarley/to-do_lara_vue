@@ -1,7 +1,11 @@
 <template>
-    
     <div class="container mt-5">
-      <h2 class="text-center mb-4">📝 To-Do List</h2>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-center">📝 To-Do List</h2>
+        <button class="btn btn-secondary" @click="toggleTheme">
+          {{ isDarkMode ? '☀️' : '🌙' }}
+        </button>
+      </div>
   
       <!-- Campo para adicionar tarefa -->
       <div class="input-group mb-3">
@@ -57,10 +61,11 @@
   </template>
   
   <script setup>
-  import { ref, computed } from 'vue';
+  import { ref, computed, onMounted } from 'vue';
   
   const newTask = ref('');
   const tasks = ref([]);
+  const isDarkMode = ref(false);
   
   const addTask = () => {
     if (!newTask.value.trim()) return;
@@ -89,5 +94,24 @@
   const completedTasks = computed(() =>
     tasks.value.filter(task => task.completed)
   );
+  
+  const toggleTheme = () => {
+    isDarkMode.value = !isDarkMode.value;
+    updateBodyClass();
+    localStorage.setItem('darkMode', isDarkMode.value);
+  };
+  
+  const updateBodyClass = () => {
+    if (isDarkMode.value) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  };
+  
+  onMounted(() => {
+    isDarkMode.value = localStorage.getItem('darkMode') === 'true';
+    updateBodyClass();
+  });
   </script>
   
