@@ -12,16 +12,174 @@
 
 body.dark-mode {
     background-color: #121212;
-    color: #f5f5f5;
+    color: #f1f1f1;
   }
   
   body.dark-mode .list-group-item {
     background-color: #1e1e1e;
-    color: #f5f5f5;
+    color: #f1f1f1;
     border-color: #333;
   }
-  
+
+body.dark-mode input::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
   body.dark-mode .list-group-item-success {
     background-color: #2e7d32 !important;
+    color: #fff;
+  }
+  
+  body.dark-mode input,
+  body.dark-mode .form-control {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    border-color: #444;
+  }
+  
+  body.dark-mode .btn-primary {
+    background-color: #1976d2;
+    border-color: #1565c0;
+  }
+  
+  body.dark-mode .btn-secondary {
+    background-color: #555;
+    border-color: #444;
+  }
+  
+  body.dark-mode .btn-danger {
+    background-color: #d32f2f;
+    border-color: #b71c1c;
+  }
+  
+  body.dark-mode .btn-success {
+    background-color: #388e3c;
+    border-color: #2e7d32;
+  }
+  
+  h2 {
+    font-weight: bold;
+  }
+  
+  ul.list-group {
+    border-radius: 8px;
+  }
+  
+  .list-group-item {
+    border-radius: 6px;
+    margin-bottom: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .btn {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  
+/* ====== Fonte geral e estilo base ====== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  /* Dark Mode background e texto */
+  body.dark-mode {
+    background-color: #1c1e21;
+    color: #f1f1f1;
+  }
+  
+  /* ====== Header e Título ====== */
+  h2 {
+    font-weight: bold;
+    color: #007bff;
+  }
+  body.dark-mode h2 {
+    color: #66b2ff;
+  }
+  
+  /* ====== Caixa de entrada de tarefas ====== */
+  .input-group input {
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  body.dark-mode .input-group input {
+    background-color: #2a2b2e;
+    color: #fff;
+    border: 1px solid #555;
+  }
+   
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transition: background-color 0.3s ease;
+  }
+  .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .list-group-item {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  body.dark-mode .list-group-item {
+    background-color: #2e2f33;
+    border-color: #444;
+    color: #e9ecef;
+  }
+  
+  .list-group-item-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  body.dark-mode .list-group-item-success {
+    background-color: #225533;
+    border-color: #2e6b3c;
+  }
+  
+  body.dark-mode ::-webkit-scrollbar {
+    width: 8px;
+  }
+  body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
   }
   
